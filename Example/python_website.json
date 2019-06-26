@@ -1,0 +1,57 @@
+{
+  "base_url": "https://www.python.org/",
+  "name_1": {
+    "path": "",
+    "component": {
+      "tag": "div",
+      "property": "class",
+      "value": "small-widget download-widget",
+      "elements": [
+        {
+          "name": "Description",
+          "tag": "p",
+          "index": 1
+        },
+        {
+          "name": "link",
+          "component": {
+            "tag": "p",
+            "index": 2,
+            "elements": [
+              {
+                "name": "download_link",
+                "tag": "a"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "name_2": {
+    "path": "",
+    "component": {
+      "tag": "div",
+      "property": "class",
+      "value": "medium-widget event-widget last",
+      "elements": [
+        {
+          "name": "events",
+          "component": {
+            "tag": "li",
+            "elements": [
+              {
+                "name": "time",
+                "tag": "time"
+              },
+              {
+                "name": "event",
+                "tag": "a"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
