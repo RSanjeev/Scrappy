@@ -5,15 +5,9 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/scrappy', methods=['POST'])
+@app.route('/scrappy', methods=['POST', 'GET'])
 def scrap_post():
     return jsonify(scrap(json.loads(request.data)))
-
-
-@app.route('/scrappy', methods=['GET'])
-def scrap_get():
-    return jsonify(scrap(json.loads(request.data)))
-
 
 if __name__ == '__main__':
     app.run(debug=False)
