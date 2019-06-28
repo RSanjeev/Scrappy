@@ -63,28 +63,25 @@ def get_data_from_config(soup, config):
     components = get_element(soup, config["component"])
     elements = config["component"]["elements"]
 
-    res_dict = {}
     res_list = []
 
     def get_data_from_component(com, elems):
+        res_dict = {}
         for elem in elems:
             if "component" in elem.keys():
-                res_dict.update({elem["name"]: get_data_from_config(com, elem)})
+                res_dict[elem["name"]] = get_data_from_config(com, elem)
             else:
-                res_dict.update({elem["name"]: get_data_from_element(get_element(com, elem), elem)})
-                res_list.append(res_dict)
+                res_dict[elem["name"]] = get_data_from_element(get_element(com, elem), elem)
+        res_list.append(res_dict)
 
     if isinstance(components, bs4.element.ResultSet):
         for component in components:
             get_data_from_component(component, elements)
+        return res_list
 
     if isinstance(components, bs4.element.Tag):
         get_data_from_component(components, elements)
-
-    if res_list:
-        return res_list
-    else:
-        return res_dict
+        return res_list[0]
 
 
 def scrap_from_config_file(file_name):
